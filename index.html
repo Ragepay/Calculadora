@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simple</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculadora">
+        <input type="text" id="pantalla" disabled placeholder="0">
+        <div class="botones">
+            <button onclick="agregarNumero('7')">7</button>
+            <button onclick="agregarNumero('8')">8</button>
+            <button onclick="agregarNumero('9')">9</button>
+            <button onclick="seleccionarOperacion('/')">/</button>
+            <button onclick="agregarNumero('4')">4</button>
+            <button onclick="agregarNumero('5')">5</button>
+            <button onclick="agregarNumero('6')">6</button>
+            <button onclick="seleccionarOperacion('*')">*</button>
+            <button onclick="agregarNumero('1')">1</button>
+            <button onclick="agregarNumero('2')">2</button>
+            <button onclick="agregarNumero('3')">3</button>
+            <button onclick="seleccionarOperacion('-')">-</button>
+            <button onclick="agregarNumero('0')">0</button>
+            <button onclick="agregarDecimal()">.</button>
+            <button onclick="seleccionarOperacion('^')">^</button>
+            <button onclick="seleccionarOperacion('+')">+</button>
+            <button onclick="calcular()" class="igual">=</button>
+            <button onclick="reiniciarCalculadora()" class="reiniciar">Reiniciar</button> <!-- Botón de reinicio -->
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

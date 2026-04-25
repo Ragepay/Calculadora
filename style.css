@@ -134,7 +134,7 @@ button {
     font-weight: 500;
 }
 
-button:active {
+button:active, button.active-btn {
     transform: translateY(5px);
     box-shadow: 0 0px 0 var(--btn-num-border);
 }
@@ -148,21 +148,21 @@ button.utility {
     color: var(--btn-util-text);
     box-shadow: 0 5px 0 var(--btn-util-border);
 }
-button.utility:active { box-shadow: 0 0px 0 var(--btn-util-border); }
+button.utility:active, button.utility.active-btn { box-shadow: 0 0px 0 var(--btn-util-border); }
 
 button.operation {
     background-color: var(--btn-op-bg);
     color: var(--btn-op-text);
     box-shadow: 0 5px 0 var(--btn-op-border);
 }
-button.operation:active { box-shadow: 0 0px 0 var(--btn-op-border); }
+button.operation:active, button.operation.active-btn { box-shadow: 0 0px 0 var(--btn-op-border); }
 
 button.equals {
     background-color: var(--btn-eq-bg);
     color: var(--btn-eq-text);
     box-shadow: 0 5px 0 var(--btn-eq-border);
 }
-button.equals:active { box-shadow: 0 0px 0 var(--btn-eq-border); }
+button.equals:active, button.equals.active-btn { box-shadow: 0 0px 0 var(--btn-eq-border); }
 
 .theme-btn {
     position: absolute;

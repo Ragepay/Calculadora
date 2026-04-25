@@ -156,8 +156,25 @@ document.addEventListener("DOMContentLoaded", () => {
     clearButton.addEventListener('click', () => { calculator.clear(); calculator.updateDisplay(); });
     deleteButton.addEventListener('click', () => { calculator.delete(); calculator.updateDisplay(); });
 
+    // Función auxiliar para encontrar el botón HTML según la tecla presionada
+    function getButtonElement(key) {
+        if (key >= '0' && key <= '9') return document.querySelector(`[data-number="${key}"]`);
+        if (key === '.' || key === ',') return document.querySelector(`[data-number="."]`);
+        if (key === '+' || key === '-') return document.querySelector(`[data-operation="${key}"]`);
+        if (key === '*') return document.querySelector(`[data-operation="×"]`);
+        if (key === '/') return document.querySelector(`[data-operation="÷"]`);
+        if (key === '^') return document.querySelector(`[data-operation="^"]`);
+        if (key === '=' || key === 'Enter') return document.querySelector(`[data-action="compute"]`);
+        if (key === 'Backspace') return document.querySelector(`[data-action="delete"]`);
+        if (key === 'Escape') return document.querySelector(`[data-action="clear"]`);
+        return null;
+    }
+
     // Agregamos soporte integral para teclado
     document.addEventListener('keydown', (e) => {
+        const btn = getButtonElement(e.key);
+        if (btn) btn.classList.add('active-btn');
+
         if ((e.key >= '0' && e.key <= '9') || e.key === '.' || e.key === ',') {
             calculator.appendNumber(e.key === ',' ? '.' : e.key);
             calculator.updateDisplay();
@@ -170,5 +187,10 @@ document.addEventListener("DOMContentLoaded", () => {
             calculator.updateDisplay();
         }
         if (e.key === '^') { calculator.chooseOperation('^'); calculator.updateDisplay(); }
+    });
+
+    document.addEventListener('keyup', (e) => {
+        const btn = getButtonElement(e.key);
+        if (btn) btn.classList.remove('active-btn');
     });
 });
